@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Genusswerk | Registrierung</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Genusswerk | Registrierung</h1>
+
+    <form action="" method="post" novalidate>
+
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            <label for="Benutzername">Benutzername</label>
+            {{ form.Benutzername(class="form-control", id="Benutzername") }}
+            {% for error in form.Benutzername.errors %}
+                <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            <label for="EMail">E-Mail</label>
+            {{ form.EMail(class="form-control", id="EMail") }}
+            {% for error in form.EMail.errors %}
+                <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            <label for="Passwort">Passwort</label>
+            {{ form.Passwort(class="form-control", id="Passwort") }}
+            {% for error in form.Passwort.errors %}
+                <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrieren</button>
+    </form>
+</div>
+</body>
+</html>

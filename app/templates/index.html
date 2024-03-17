@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Genusswerk | Hauptseite</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Genusswerk | Hauptseite</h1>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Hauptseite</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('rezept_erfassen') }}">Rezept erfassen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% for rezept in rezepte %}
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ rezept.titel }}</h5>
+                <p class="card-text">{{ rezept.beschreibung }}</p>
+                <a href="{{ url_for('rezept', id=rezept.id) }}" class="btn btn-primary">Rezept anschauen</a>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+</body>
+</html>

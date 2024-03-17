@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>Genusswerk | Rezept erfassen</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Genusswerk | Rezept erfassen</h1>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Hauptseite</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('rezept_erfassen') }}">Rezept erfassen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <form action="" method="post" novalidate>
+
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            <label for="Titel">Titel</label>
+            {{ form.Titel(class="form-control", id="Titel") }}
+            {% for error in form.Titel.errors %}
+                <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            <label for="Beschreibung">Beschreibung</label>
+            {{ form.Beschreibung(class="form-control", id="Beschreibung") }}
+            {% for error in form.Beschreibung.errors %}
+                <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            <label for="Zutaten">Zutaten</label>
+            {{ form.Zutaten(class="form-control", id="Zutaten") }}
+            {% for error in form.Zutaten.errors %}
+                <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            <label for="Kochanleitung">Kochanleitung</label>
+            {{ form.Kochanleitung(class="form-control", id="Kochanleitung") }}
+            {% for error in form.Kochanleitung.errors %}
+                <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            <label for="Zubereitungsdauer">Zubereitungsdauer</label>
+            {{ form.Zubereitungsdauer(class="form-control", id="Zubereitungsdauer") }}
+            {% for error in form.Zubereitungsdauer.errors %}
+                <span style="color: red">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Absenden</button>
+    </form>
+</div>
+</body>
+</html>
