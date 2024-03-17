@@ -91,7 +91,7 @@ def rezept(id):
         # Ansonsten Seite ausgeben
         else:
             rezept = Rezepte.query.filter_by(id = id).first()
-            kommentare = db.session.query(Kommentare, Benutzer.benutzername).join(Benutzer, Kommentare.fk_benutzer_id == Benutzer.id).all()
+            kommentare = db.session.query(Kommentare, Benutzer.benutzername).join(Benutzer, Kommentare.fk_benutzer_id == Benutzer.id).filter(Kommentare.fk_rezept_id == id).all()
             return render_template('rezept.html', rezept=rezept, form=form, kommentare=kommentare)
     # Falls Benutzer nicht authentifiziert, weiterleiten zu Index
     else:
