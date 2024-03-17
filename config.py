@@ -6,6 +6,5 @@ sql_host = os.environ.get('sql_host')
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'vNn^D=k8slkjef-f9vjv97r3jfs@#°n'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'mysql+pymysql://wurzel:flafj4r9jvfdv83!dkf-kdfjAajDjflAjv3829sad@ifa-ramonpf-diab.mysql.database.azure.com:3306/genusswerk'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{sql_user}:{sql_pass}@{sql_host}:3306/genusswerk'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
